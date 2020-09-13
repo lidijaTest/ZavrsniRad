@@ -22,10 +22,10 @@ public class Main {
         List<Point2D> D = new ArrayList<Point2D>();
 
         D.add(new Point(61, 10));
-        D.add(new Point(85, 44));
-        D.add(new Point(101, 40));
-        D.add(new Point(105, 54));
-        D.add(new Point(151, 23));
+        D.add(new Point(80, 40));
+        D.add(new Point(91, 38));
+        D.add(new Point(95, 46));
+        D.add(new Point(158, 32));
         D.add(new Point(188, 90));
         D.add(new Point(130, 105));
         D.add(new Point(106, 149));

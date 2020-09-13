@@ -280,12 +280,12 @@ public class Poligon {
                     vrhoviTemp.add(S.pop());
                     brojVrhovaKojiSuIzbaceni++;
                 }
-                for(int k = 1; k<brojVrhovaKojiSuIzbaceni-1; k++){
+                for(int k = 0; k<brojVrhovaKojiSuIzbaceni-1; k++){
                     if(jeLiDijagonalaUnutarPoligona(U.get(i),vrhoviTemp.get(k))){
                         d.dodajElement(U.get(i),vrhoviTemp.get(k));
                     }
                 }
-                S.push(U.get(i));
+                S.push(U.get(i-1));
                 S.push(U.get(i));
                 vrhoviTemp.clear();
             }else{
@@ -295,7 +295,7 @@ public class Poligon {
                     vrhoviTemp.add(S.pop());
                     sizeTemp = S.size();
                 }*/
-                vrhoviTemp.add(S.pop());
+                //vrhoviTemp.add(S.pop());
                 sizeTemp = S.size();
                 for (int j = sizeTemp-1; j>=0; j--){
                     if(jeLiDijagonalaUnutarPoligona(S.elementAt(j), U.get(i))){
@@ -307,7 +307,9 @@ public class Poligon {
                 /*for(int k = 0; k<brojVrhovaKojiSuIzbaceni-1; k++){
                     d.dodajElement(U.get(i),vrhoviTemp.get(k));
                 }*/
-                S.push(vrhoviTemp.get(vrhoviTemp.size()-1));
+                if(!vrhoviTemp.isEmpty()){
+                    S.push(vrhoviTemp.get(vrhoviTemp.size()-1));
+                }
                 S.push(U.get(i));
                 vrhoviTemp.clear();
             }
@@ -321,6 +323,8 @@ public class Poligon {
             }
         }
         d.trimToSize();
+        d.obrisiDijagonaleKojeSeSjeku();
+
     }
 
     public static boolean jeLiDijagonalaUnutarPoligona(Point2D vrh, Point2D drugiVrh){
